@@ -1,5 +1,5 @@
 import jsonfile from 'jsonfile';
-import { IUser } from '@entities/User';
+import { IUser } from '../../entities/User';
 
 
 interface IDatabase {

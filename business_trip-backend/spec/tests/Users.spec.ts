@@ -2,11 +2,11 @@ import supertest from 'supertest';
 import StatusCodes from 'http-status-codes';
 import { SuperTest, Test } from 'supertest';
 
-import app from '@server';
-import UserDao from '@daos/User/UserDao.mock';
-import User, { IUser } from '@entities/User';
-import { pErr } from '@shared/functions';
-import { paramMissingError } from '@shared/constants';
+import app from '../../src/Server';
+import UserDao from '../../src/daos/User/UserDao.mock';
+import User, { IUser } from '../../src/entities/User';
+import { pErr } from '../../src/shared/functions';
+import { paramMissingError } from '../../src/shared/constants';
 import { IReqBody, IResponse } from '../support/types';
 
 
