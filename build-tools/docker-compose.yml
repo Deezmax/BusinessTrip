@@ -1,0 +1,51 @@
+version: "3.3"
+services:
+  # postgres:
+  #   build: postgres
+  #   container_name: viking-postgres
+  #   shm_size: '256mb'
+  #   volumes: 
+  #       - /home/mschreiter/viking-app/postgres/data:/var/lib/postgresql/data
+  #   networks:
+  #     - docker_local
+  #   ports:
+  #     - "127.0.0.1:5432:5432"
+  # init_postgres:
+  #   build: init_postgres
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - docker_local
+  mongo:
+    build: mongo
+    container_name: mongo-businessTrip
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
+    ports: 
+      - "127.0.0.1:27017:27017"
+    volumes: 
+      - ./mongodb:/data/db
+      - ./mongo/initdb/:/docker-entrypoint-initdb.d/
+    command: mongod -setParameter maxIndexBuildMemoryUsageMegabytes=2000
+    networks:
+      - docker_local
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 127.0.0.1:8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: toor
+    networks:
+      - docker_local
+  mail:
+    image: inbucket/inbucket:stable
+    ports:
+      - "2500:2500"
+      - "127.0.0.1:9000:9000"
+
+networks:
+  docker_local:
+    driver: bridge
