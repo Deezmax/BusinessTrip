@@ -9,11 +9,12 @@ import 'express-async-errors';
 
 import BaseRouter from './routes';
 import logger from './shared/Logger';
+import connectMongo from './secruity/database/mongoConnection';
 
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
 
-
+connectMongo();
 
 /************************************************************************************
  *                              Set basic express settings

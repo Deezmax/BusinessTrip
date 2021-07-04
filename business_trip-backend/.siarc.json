@@ -1,0 +1,16 @@
+[
+  {
+    "name": "my-service",
+    "baseUri": "http://localhost:3000/api",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/hello",
+        "response": "string",
+        "request": {
+          "message": "string"
+        }
+      }
+    ]
+  }
+]
