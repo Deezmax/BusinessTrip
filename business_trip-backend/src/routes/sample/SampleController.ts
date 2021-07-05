@@ -6,8 +6,7 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 export const sampleRouter = Router();
 
 sampleRouter.get("/sample/get", (req, res) => {
-    res.status(OK).send(
-        {
+    res.status(OK).send({
             test : "hi"
         }
     );
