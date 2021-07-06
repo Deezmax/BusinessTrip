@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Footer = () => {
+export function Footer() {
     return(
         <React.Fragment>
             <h1>
