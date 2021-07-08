@@ -1,5 +1,5 @@
 import React from "react";
-
+import bootstrap from "react-bootstrap";
 
 export function Footer() {
     return(
@@ -7,6 +7,7 @@ export function Footer() {
             <h1>
                 ICH BIN DER FOOTER
             </h1>
+            
         </React.Fragment>
     );
 }
