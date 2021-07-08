@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack')
 
 const prod = process.env.NODE_ENV === "production"
 
@@ -55,10 +56,19 @@ const config = {
             safe: false,
             silent: false,
         }),
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[name].js.map',
+            exclude: ['vendor.js']
+        })
+        
     ],
 }
 
 if (prod) {
+    config.output = {
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js",
+    }
 
 } else {
     config.devServer = {
@@ -68,7 +78,12 @@ if (prod) {
         compress: true,
         stats: "errors-only",
         overlay: true,
+    },
+    config.output = {
+        path: path.resolve(__dirname, "dist"),
+        filename: "[name].[fullhash].bundle.js",
     }
+    config.devtool = "source-map"
 }
 
 module.exports = config;
