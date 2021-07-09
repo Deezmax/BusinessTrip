@@ -2,12 +2,11 @@ import React from "react";
 import bootstrap from "react-bootstrap";
 
 export function Footer() {
-    return(
+    return (
         <React.Fragment>
-            <h1>
-                ICH BIN DER FOOTER
-            </h1>
-            
+            <footer>
+                content
+            </footer>
         </React.Fragment>
     );
 }
