@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Redirect, Route, Router } from "react-router-dom";
 
+import '../styles/index.scss';
+
 import Decorator from "./Decorator/Decorator";
 import Users from "./Users/Users"
 import Home from "./Home/Home"

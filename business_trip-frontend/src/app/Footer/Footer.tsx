@@ -1,12 +1,19 @@
 import React from "react";
-import bootstrap from "react-bootstrap";
+import './footer.scss'
 
 export function Footer() {
     return (
         <React.Fragment>
-            <footer>
-                content
-            </footer>
+            <div className='footer'>
+                <div className='row'>
+                    <div className='col'>
+                        Projekt für die Bachelorarbeit
+                    </div>
+                    <div className='col left'>
+                        &copy; Maximilian Schreiter {new Date().getFullYear()}
+                    </div>
+                </div>
+            </div>
         </React.Fragment>
     );
 }
