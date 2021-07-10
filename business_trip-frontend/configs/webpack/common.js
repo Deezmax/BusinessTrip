@@ -2,9 +2,6 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-env = process.env.NODE_ENV;
-console.debug('Your current environment: ' + env);
-
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
@@ -37,7 +34,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-    })
+    }),
   ],
   externals: {},
   performance: {

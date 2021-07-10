@@ -4,8 +4,10 @@ const webpack = require('webpack');
 const commonConfig = require('./common');
 const DotenvWebpackPlugin = require('dotenv-webpack');
 
+const env = 'development';
+
 module.exports = merge(commonConfig, {
-  mode: 'development',
+  mode: env,
   entry: [
     'react-hot-loader/patch', // activate HMR for React
     'webpack-dev-server/client?http://localhost:3000', // bundle the client for webpack-dev-server and connect to the provided endpoint
@@ -22,7 +24,7 @@ module.exports = merge(commonConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new DotenvWebpackPlugin({
-      path: './development.env',
+      path: './' + env + '.env',
       safe: false,
       silent: false,
       allowEmptyValues: true,
