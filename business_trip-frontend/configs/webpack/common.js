@@ -1,7 +1,9 @@
 // shared config (dev and prod)
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DotenvWebpackPlugin = require('dotenv-webpack');
+
+env = process.env.NODE_ENV;
+console.debug('Your current environment: ' + env);
 
 module.exports = {
   resolve: {
@@ -35,12 +37,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-    }),
-    new DotenvWebpackPlugin({
-      path: './development.env',
-      safe: false,
-      silent: false,
-    }),
+    })
   ],
   externals: {},
   performance: {
