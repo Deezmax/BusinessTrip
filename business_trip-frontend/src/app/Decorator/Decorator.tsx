@@ -5,7 +5,6 @@ import Footer from '../Footer/Footer';
 
 export function Decorator(props: any) {
   const { children } = props;
-  console.log(children);
   return (
     <React.Fragment>
       <div id="wrapper">

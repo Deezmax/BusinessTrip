@@ -4,6 +4,7 @@ const header = {
   Accept: 'application/json,application/xhtml+xml,application/xml,text/html',
 };
 
-export const requestOptions = {
+export const requestOptionsGet = {
+  method: 'GET',
   headers: new Headers(header),
 };
