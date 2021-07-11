@@ -18,10 +18,6 @@ export function Users(props: any) {
     makeRequest();
   }, []);
 
-  useEffect(() => {
-    makeRequest2(data);
-  }, []);
-
   const sendRequest = (data: any) => {
     makeRequest2(data);
   };
