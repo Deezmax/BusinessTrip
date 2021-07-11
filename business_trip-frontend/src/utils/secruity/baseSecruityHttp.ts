@@ -1,5 +1,3 @@
-import { IStates } from '../actiontypes/actionTypes';
-
 const header = {
   'Content-Type': 'application/json',
   Accept: 'application/json,application/xhtml+xml,application/xml,text/html',

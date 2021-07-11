@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useApiRequest } from '../../service/BaseRest';
 import { IStates } from '../../utils/actiontypes/actionTypes';
-import { IRequestMethods } from '../../utils/secruity/baseRest';
+import { IRequestMethods } from '../../utils/secruity/baseSecruityHttp';
 import './footer.scss';
 
 export function Footer() {

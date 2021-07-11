@@ -1,7 +1,10 @@
 import { useCallback, useReducer } from 'react';
 import { BASE_URI } from '../utils/commons/config';
 import reducer, { initialState } from '../utils/hooks/reducer';
-import { getRequestOptions, IRequestMethods } from '../utils/secruity/baseRest';
+import {
+  getRequestOptions,
+  IRequestMethods,
+} from '../utils/secruity/baseSecruityHttp';
 import { fetching, success, error } from '../utils/actiontypes/actionTypes';
 
 export const useApiRequest = (
