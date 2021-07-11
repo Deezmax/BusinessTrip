@@ -6,7 +6,7 @@ import './footer.scss';
 
 export function Footer() {
   const [{ status, res }, makeRequest] = useApiRequest('', {
-    verb: IRequestMethods.GET,
+    method: IRequestMethods.GET,
   });
 
   useEffect(() => {

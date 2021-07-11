@@ -9,24 +9,28 @@ import { fetching, success, error } from '../utils/actiontypes/actionTypes';
 
 export const useApiRequest = (
   uri: string,
-  { verb = IRequestMethods.GET, params = {} },
+  { method = IRequestMethods.GET, params = {} },
 ) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchData = useCallback(async () => {
-    dispatch(fetching());
+  const fetchData = useCallback(
+    async (body?: any) => {
+      dispatch(fetching());
 
-    const requestOptions = getRequestOptions(verb);
-    // TODO params
+      const requestOptions = getRequestOptions(method, body);
 
-    try {
-      const res = await fetch(`${BASE_URI}${uri}`, requestOptions);
-      const body = await res.json();
-      dispatch(success(body));
-    } catch (e) {
-      dispatch(error(e));
-    }
-  }, [uri, verb, params]);
+      // TODO params
+
+      try {
+        const res = await fetch(`${BASE_URI}${uri}`, requestOptions);
+        const resBody = await res.json();
+        dispatch(success(resBody));
+      } catch (e) {
+        dispatch(error(e));
+      }
+    },
+    [uri, method, params],
+  );
 
   return [state, fetchData];
 };

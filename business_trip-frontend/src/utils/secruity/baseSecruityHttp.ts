@@ -13,13 +13,16 @@ export enum IRequestMethods {
 interface RequestOptions {
   method: IRequestMethods;
   headers: any;
+  body?: any;
 }
 
-export function getRequestOptions(method?: IRequestMethods) {
+export function getRequestOptions(method?: IRequestMethods, body?: any) {
   const requestOptions: RequestOptions = {
     method: null,
     headers: null,
   };
+
+  requestOptions.headers = header;
 
   switch (method) {
     case IRequestMethods.GET:
@@ -39,7 +42,9 @@ export function getRequestOptions(method?: IRequestMethods) {
       break;
   }
 
-  requestOptions.headers = header;
+  if (body) {
+    requestOptions.body = JSON.stringify(body);
+  }
 
   return requestOptions;
 }
