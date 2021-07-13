@@ -3,9 +3,7 @@ import useApi from '../../hooks/useApi';
 import './footer.scss';
 
 export function Footer() {
-  const { error, isLoading, message, api, handleFetchApi } = useApi();
-
-  // const { handleFetchApi, error, isLoading, message, api } = useApi();
+  const { api, isLoading, handleFetchApi } = useApi();
 
   useEffect(() => {
     async function loadApi() {
@@ -22,14 +20,13 @@ export function Footer() {
         <div className="row">
           <div className="col">Projekt für die Bachelorarbeit</div>
           <div className="col center">
-            {/* {status === IStates.FETCHING}
-            {status === IStates.ERROR && <div>ERROR</div>}
-            {status === IStates.SUCCESS && (
+            {isLoading ? (
+              <div>...</div>
+            ) : (
               <div>
-                {res.framework} : {res.version}
+                {api.framework}:{api.version}
               </div>
-            )} */}
-            {}
+            )}
           </div>
           <div className="col left">
             &copy; Maximilian Schreiter {new Date().getFullYear()}

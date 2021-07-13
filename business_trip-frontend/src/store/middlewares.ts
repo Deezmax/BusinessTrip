@@ -7,6 +7,8 @@ export const logger = (
   currentState: object,
 ) => {
   console.groupCollapsed('Logger');
-  console.log('%c Action', action);
+  console.log(`Action: `, action);
+  console.log(`PreviousState: `, prevState);
+  console.log(`CurrentState: `, currentState);
   console.groupEnd();
 };

@@ -1,24 +1,25 @@
 import { useGlobalStore } from '../../store';
-import apiReducer from '../../store/api';
+import tripsReducer from '../../store/trips';
 import bindActions from '../../store/bindActions';
 
-const { actions } = apiReducer;
+const { actions } = tripsReducer;
 
 const useApi: any = () => {
   const { state, dispatch } = useGlobalStore();
 
-  const { api } = state;
+  const { trips } = state;
 
-  const { handleFetchApi } = actions;
+  const { handleFetchTrips, handlePostTrips } = actions;
 
   const apiActions = bindActions(
     {
-      handleFetchApi,
+      handleFetchTrips,
+      handlePostTrips,
     },
     dispatch,
   );
 
-  return { ...api, ...apiActions };
+  return { ...trips, ...apiActions };
 };
 
 export default useApi;
