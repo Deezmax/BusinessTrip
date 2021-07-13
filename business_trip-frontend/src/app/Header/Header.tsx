@@ -9,7 +9,7 @@ export function Header() {
             <a className="navbar-brand" href="/home">
               <img
                 alt=""
-                src="src/img/header/creep.svg"
+                src="src/assets/img/header/creep.svg"
                 width="30"
                 height="30"
                 className="d-linline-block align top"
