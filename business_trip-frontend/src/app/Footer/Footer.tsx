@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import { useApiRequest } from '../../service/BaseRest';
-import { IStates } from '../../utils/actiontypes/actionTypes';
-import { IRequestMethods } from '../../utils/secruity/baseSecruityHttp';
+import useApi from '../../hooks/useApi';
 import './footer.scss';
 
 export function Footer() {
-  const [{ status, res }, makeRequest] = useApiRequest('', {
-    method: IRequestMethods.GET,
-  });
+  const { error, isLoading, message, api, handleFetchApi } = useApi();
+
+  // const { handleFetchApi, error, isLoading, message, api } = useApi();
 
   useEffect(() => {
-    makeRequest();
+    async function loadApi() {
+      if (!isLoading) {
+        await handleFetchApi();
+      }
+    }
+    loadApi();
   }, []);
 
   return (
@@ -19,13 +22,14 @@ export function Footer() {
         <div className="row">
           <div className="col">Projekt für die Bachelorarbeit</div>
           <div className="col center">
-            {status === IStates.FETCHING}
+            {/* {status === IStates.FETCHING}
             {status === IStates.ERROR && <div>ERROR</div>}
             {status === IStates.SUCCESS && (
               <div>
                 {res.framework} : {res.version}
               </div>
-            )}
+            )} */}
+            {}
           </div>
           <div className="col left">
             &copy; Maximilian Schreiter {new Date().getFullYear()}
