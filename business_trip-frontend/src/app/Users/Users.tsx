@@ -9,8 +9,7 @@ export function Users(props: any) {
 
   const [fTrips, setFtrips] = useState(null);
 
-  const { trips, fetchedTrips, isLoading, handleFetchTrips, handlePostTrips } =
-    useTrips();
+  const { trips, fetchedTrips, isLoading, handleFetchTrips, handlePostTrips } = useTrips();
 
   useEffect(() => {
     async function loadTrips() {
@@ -25,11 +24,13 @@ export function Users(props: any) {
     handlePostTrips();
   }
 
+  useEffect(() => {
+    setFtrips(fetchedTrips);
+  }, [fetchedTrips])
+
   return (
     <React.Fragment>
-      <div>
-        Backend says: {isLoading ? <div>...</div> : <div>{trips.test}</div>}
-      </div>
+      <div>Backend says: {isLoading ? <div>...</div> : <div>{trips.test}</div>}</div>
       <button
         type="button"
         className="btn btn-danger"

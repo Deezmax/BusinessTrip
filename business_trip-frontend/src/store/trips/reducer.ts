@@ -33,7 +33,6 @@ export default function useTrips(state = initialState, action: any) {
         isLoading: true,
         error: undefined,
         message: undefined,
-        trips: undefined,
         fetchedTrips: undefined,
       };
     }
@@ -42,8 +41,6 @@ export default function useTrips(state = initialState, action: any) {
         ...state,
         isLoading: false,
         error: undefined,
-        message: undefined,
-        trips: undefined,
         fetchedTrips: action.payload,
       };
     }
