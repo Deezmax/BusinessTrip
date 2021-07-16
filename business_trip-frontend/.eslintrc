@@ -15,7 +15,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "require-jsdoc": "off",
-    "max-len": "off",
+    "max-len": ["warn", "100"],
     "object-curly-spacing": "off",
     "no-unused-vars": "warn",
     "prettier/prettier": ["error"]
