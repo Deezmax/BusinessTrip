@@ -2,7 +2,8 @@ import StatusCodes from 'http-status-codes';
 import { Request, Response, Router } from 'express';
 const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 
-import User, { IUser } from '../../entities/User';
+import User, { IUser } from '../../common/User';
+import { getTime } from '../../shared/functions';
 
 export const sampleRouter = Router();
 
@@ -12,7 +13,7 @@ sampleRouter.get('/sample', (req, res) => {
   });
 });
 
-sampleRouter.post('/sample', (req, res) => {
+sampleRouter.post('/sample', async (req, res) => {
   const body = req.body;
   // PARSe body? DAO?
 
@@ -25,8 +26,9 @@ sampleRouter.post('/sample', (req, res) => {
   user.lastName = 'Schreiter';
   user.userName = 'Admin';
   user.email = 'test@test.de';
-
-  user.save();
+  user.created_at = getTime();
+  user.last_changed = getTime();
+  await user.save();
 
   const message =
     'Das kamm vom Frontend: ' + originalData + '. Das Backend hat dieses angehängt' + ':)';
