@@ -1,10 +1,7 @@
-import { randomUUID } from 'crypto';
 import { Document, Model, Schema, model, Date } from 'mongoose';
 import IBaseMongo from './BaseMongoInterface';
 
 export interface IUser extends Document, IBaseMongo {
-  user: globalThis.Date;
-  id: string;
   userName: string;
   firstName: string;
   lastName: string;
@@ -20,12 +17,6 @@ export interface IUser extends Document, IBaseMongo {
 }
 
 const userSchema: Schema = new Schema({
-  id: {
-    type: String,
-    required: true,
-    unique: true,
-    index: true,
-  },
   userName: {
     type: String,
     required: true,

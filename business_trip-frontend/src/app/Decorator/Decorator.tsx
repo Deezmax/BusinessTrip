@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import './decorator.scss';
 
 export function Decorator(props: any) {
   const { children } = props;
@@ -9,7 +10,7 @@ export function Decorator(props: any) {
     <React.Fragment>
       <div id="wrapper">
         <Header />
-        {children}
+        <div className="decorator">{children}</div>
         <Footer />
       </div>
     </React.Fragment>

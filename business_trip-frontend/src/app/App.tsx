@@ -8,7 +8,6 @@ import Users from './Users/Users';
 import Home from './Home/Home';
 
 import { browerHistory, getCurrentPath } from '../utils/history';
-import { fetching } from '../utils/actiontypes/actionTypes';
 
 function getRedirectPath() {
   const redirectPath = getCurrentPath();

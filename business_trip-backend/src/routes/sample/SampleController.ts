@@ -21,17 +21,16 @@ sampleRouter.post('/sample', async (req, res) => {
 
   const user: IUser = new User();
   // user.build('deezmax', 'Maximilian', 'Schreiter', 'test');
-  user.id = '1';
-  user.firstName = 'Max';
-  user.lastName = 'Schreiter';
-  user.userName = 'Admin';
-  user.email = 'test@test.de';
+  user.firstName = body.firstName;
+  user.lastName = body.lastName;
+  user.userName = body.userName;
+  user.email = body.email;
   user.created_at = getTime();
   user.last_changed = getTime();
   await user.save();
 
   const message =
-    'Das kamm vom Frontend: ' + originalData + '. Das Backend hat dieses angehängt' + ':)';
+    'Das kamm vom Frontend: ' + originalData + '. Das Backend hat dieses angehängt:' + user.toJSON;
 
   res.status(OK).send({
     data: message,

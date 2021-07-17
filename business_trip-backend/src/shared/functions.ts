@@ -1,4 +1,4 @@
-import dateFormat from 'dateformat';
+import { DateTime } from 'luxon';
 import logger from './Logger';
 
 export const pErr = (err: Error) => {
@@ -12,6 +12,6 @@ export const getRandomInt = () => {
 };
 
 export const getTime = () => {
-  const now = new Date();
-  return dateFormat(now, 'isoDateTime');
+  const now = DateTime.now().toISO();
+  return now;
 };

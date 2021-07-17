@@ -1,14 +1,15 @@
 import api from '../../common/api';
+import User from '../../common/dto/Users';
 import { IRequestMethods } from '../../utils/secruity/baseSecruityHttp';
 import { TRIPS } from './types';
 
 // ################ POST TRIPS ##################
 
-export function handlePostTrips(body: any) {
+export function handlePostTrips(user: User) {
   return async (dispatch: any) => {
     dispatch(postTrips());
     try {
-      const trips = await postTripsResponse(body);
+      const trips = await postTripsResponse(user);
       if (trips) {
         dispatch(postTripsSuccess(trips));
       } else {
