@@ -18,7 +18,8 @@
       "max-len": ["warn", 120],
       "object-curly-spacing": "off",
       "no-unused-vars": "warn",
-      "prettier/prettier": ["error"]
+      "prettier/prettier": ["error"],
+      "new-cap": "off"
     },
     "settings": {
       "propWrapperFunctions": [

@@ -1,39 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import { match, useRouteMatch, withRouter } from 'react-router-dom';
-import useTrips from '../../hooks/useTrips';
+import User from '../../common/dto/Users';
+import useUser from '../../hooks/useUser';
 import { saveCurrentPath } from '../../utils/history';
 
 export function Users(props: any) {
   saveCurrentPath(props.location);
   const { path } = useRouteMatch() as match;
 
-  const state = {
-    user: User,
-  };
+  const [userList, setUserList] = useState([]);
+  // const [singleUser, setSingleUser] = useState<User>({
+  //   userName: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  // });
 
-  const [fTrips, setFtrips] = useState(null);
+  const [userName, setUserName] = useState<string>();
+  const [firstName, setfirstName] = useState<string>();
+  const [lastName, setLastName] = useState<string>();
+  const [email, setEmail] = useState<string>();
 
-  const { trips, fetchedTrips, isLoading, handleFetchTrips, handlePostTrips } = useTrips();
+  const {
+    user,
+    users,
+    hasChanged,
+    isLoading,
+    handleFetchAllUser,
+    handleFetchUser,
+    handlePostUser,
+  } = useUser();
 
   useEffect(() => {
-    async function loadTrips() {
+    async function loadUserList() {
       if (!isLoading) {
-        await handleFetchTrips();
+        await handleFetchAllUser();
+        setUserList(users);
       }
     }
-    loadTrips();
+    loadUserList();
   }, []);
 
   function onClickCommit() {
-    handlePostTrips(this.state.user);
+    const userToSubmit: User = {
+      userName: userName,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+    };
+    handlePostUser(userToSubmit);
   }
 
-  useEffect(() => {
-    setFtrips(fetchedTrips);
-  }, [fetchedTrips]);
+  function onSelectUser(event) {
+    // setSingleUser(event.target.value);
+  }
 
   return (
     <React.Fragment>
+      <select className="form-select form-select-lg" defaultValue="-1" onSelect={onSelectUser}>
+        <option value="-1">Open this select menu</option>
+        {userList?.map((user, i) => {
+          <option value={user.userName}>{user.userName}</option>;
+        })}
+      </select>
       <form onSubmit={onClickCommit}>
         <div className="container-sm-4">
           <div className="row">
@@ -45,7 +74,10 @@ export function Users(props: any) {
                 type="text"
                 className="form-control"
                 id="userNameInput"
-                value={state.user.userName}
+                value={userName}
+                onChange={(event) => {
+                  setUserName(event.target.value);
+                }}
               ></input>
             </div>
           </div>
@@ -58,7 +90,10 @@ export function Users(props: any) {
                 type="text"
                 className="form-control"
                 id="firstNameInput"
-                value={this.state.user.firstName}
+                value={firstName}
+                onChange={(event) => {
+                  setfirstName(event.target.value);
+                }}
               ></input>
             </div>
           </div>
@@ -71,7 +106,10 @@ export function Users(props: any) {
                 type="text"
                 className="form-control"
                 id="lastNameInput"
-                value={this.state.user.lastName}
+                value={lastName}
+                onChange={(event) => {
+                  setLastName(event.target.value);
+                }}
               ></input>
             </div>
           </div>
@@ -84,7 +122,10 @@ export function Users(props: any) {
                 type="email"
                 className="form-control"
                 id="emailInput"
-                value={this.state.user.email}
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
               ></input>
             </div>
           </div>
