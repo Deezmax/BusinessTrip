@@ -51,7 +51,7 @@ export default function useUser(state = initialState, action: any) {
         isLoading: true,
         error: undefined,
         message: undefined,
-        users: undefined,
+        users: [],
       };
     }
     case USER.FETCH_ALL_USERS_SUCCESS: {
@@ -60,7 +60,7 @@ export default function useUser(state = initialState, action: any) {
         isLoading: false,
         error: undefined,
         message: undefined,
-        users: action.payload,
+        users: action.payload.users,
       };
     }
     case USER.ERROR: {

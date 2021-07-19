@@ -7,6 +7,7 @@ import { USER } from './types';
 
 export function handlePostUser(user: User) {
   return async (dispatch: any) => {
+    console.log(user);
     dispatch(postUser());
     try {
       const fetchedUser = await postUserResponse(user);

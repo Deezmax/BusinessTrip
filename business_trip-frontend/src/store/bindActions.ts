@@ -1,10 +1,9 @@
-/* eslint-disable guard-for-in */
 import { NameToValueMap } from '../common/types';
 
 export default function bindActions(actions: any, dispatch: any) {
   const bindAction = (action: any, dispatch: any) => {
     return function () {
-      return dispatch(action.apply(...arguments));
+      return dispatch(action.apply(null, arguments));
     };
   };
 

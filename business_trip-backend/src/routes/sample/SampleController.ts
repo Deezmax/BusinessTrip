@@ -17,10 +17,8 @@ sampleRouter.post('/sample', async (req, res) => {
   const body = req.body;
   // PARSe body? DAO?
 
-  const originalData = body.data;
-
+  // TODO boilderplate erledigen.
   const user: IUser = new User();
-  // user.build('deezmax', 'Maximilian', 'Schreiter', 'test');
   user.firstName = body.firstName;
   user.lastName = body.lastName;
   user.userName = body.userName;
@@ -30,7 +28,7 @@ sampleRouter.post('/sample', async (req, res) => {
   await user.save();
 
   const message =
-    'Das kamm vom Frontend: ' + originalData + '. Das Backend hat dieses angehängt:' + user.toJSON;
+    'Das kamm vom Frontend: ' + body + '. Das Backend hat dieses angehängt:' + user.toJSON;
 
   res.status(OK).send({
     data: message,

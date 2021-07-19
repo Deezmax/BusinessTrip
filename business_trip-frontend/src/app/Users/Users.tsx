@@ -35,11 +35,14 @@ export function Users(props: any) {
     async function loadUserList() {
       if (!isLoading) {
         await handleFetchAllUser();
-        setUserList(users);
       }
     }
     loadUserList();
   }, []);
+
+  useEffect(() => {
+    setUserList(users);
+  }, [users]);
 
   function onClickCommit() {
     const userToSubmit: User = {
@@ -51,17 +54,21 @@ export function Users(props: any) {
     handlePostUser(userToSubmit);
   }
 
-  function onSelectUser(event) {
-    // setSingleUser(event.target.value);
-  }
+  const onSelectUser = (event) => {
+    const user: User = userList.find((user) => user.userName === event.target.value);
+    setUserName(user.userName);
+    setfirstName(user.firstName);
+    setLastName(user.lastName);
+    setEmail(user.email);
+  };
 
   return (
     <React.Fragment>
-      <select className="form-select form-select-lg" defaultValue="-1" onSelect={onSelectUser}>
+      <select className="form-select form-select-lg" defaultValue="-1" onChange={onSelectUser}>
         <option value="-1">Open this select menu</option>
-        {userList?.map((user, i) => {
-          <option value={user.userName}>{user.userName}</option>;
-        })}
+        {userList.map((user, i) => (
+          <option value={user.userName}>{user.userName}</option>
+        ))}
       </select>
       <form onSubmit={onClickCommit}>
         <div className="container-sm-4">
