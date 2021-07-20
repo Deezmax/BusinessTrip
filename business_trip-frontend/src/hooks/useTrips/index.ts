@@ -4,7 +4,7 @@ import bindActions from '../../store/bindActions';
 
 const { actions } = tripsReducer;
 
-const useApi: any = () => {
+const useTrips: any = () => {
   const { state, dispatch } = useGlobalStore();
 
   const { trips } = state;
@@ -22,4 +22,4 @@ const useApi: any = () => {
   return { ...trips, ...apiActions };
 };
 
-export default useApi;
+export default useTrips;

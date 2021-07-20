@@ -61,7 +61,9 @@ export function Users(props: any) {
               >
                 <option value="-1">Open this select menu</option>
                 {userList.map((user, i) => (
-                  <option value={user.userName}>{user.userName}</option>
+                  <option value={user.userName} key={i.toString()}>
+                    {user.userName}
+                  </option>
                 ))}
               </select>
             </div>

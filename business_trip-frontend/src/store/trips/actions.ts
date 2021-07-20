@@ -37,7 +37,7 @@ function postTripsSuccess(trips: void): any {
 }
 
 async function postTripsResponse(body: any) {
-  const respone = await api('/sample', IRequestMethods.POST, body);
+  const respone = await api('/trip/trips', IRequestMethods.POST, body);
   const json = await respone.json();
   return json;
 }
