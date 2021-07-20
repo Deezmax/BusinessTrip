@@ -9,12 +9,6 @@ export function Users(props: any) {
   const { path } = useRouteMatch() as match;
 
   const [userList, setUserList] = useState([]);
-  // const [singleUser, setSingleUser] = useState<User>({
-  //   userName: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  // });
 
   const [userName, setUserName] = useState<string>();
   const [firstName, setfirstName] = useState<string>();

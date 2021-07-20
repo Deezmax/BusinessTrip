@@ -8,6 +8,8 @@ import Users from './Users/Users';
 import Home from './Home/Home';
 
 import { browerHistory, getCurrentPath } from '../utils/history';
+import TravelDestinations from './TravelDestinations/TravelDestinations';
+import BusinessTrips from './BusinessTrips/BusinessTrips';
 
 function getRedirectPath() {
   const redirectPath = getCurrentPath();
@@ -32,6 +34,8 @@ const App = () => {
             />
             <Route path="/home" component={Home} />
             <Route path="/users" component={Users} />
+            <Route path="/travelDestinations" component={TravelDestinations} />
+            <Route path="/businessTrips" component={BusinessTrips} />
           </div>
         </Decorator>
       </Router>
