@@ -38,7 +38,7 @@ function postUserSuccess(user: User): any {
 }
 
 async function postUserResponse(body: any) {
-  const respone = await api('/sample', IRequestMethods.POST, body);
+  const respone = await api('/user/user', IRequestMethods.POST, body);
   const json = await respone.json();
   return json;
 }
@@ -77,7 +77,7 @@ function fetchUserSuccess(trips: any) {
 }
 
 async function fetchUserResponse() {
-  const respone = await api('/sample', IRequestMethods.GET);
+  const respone = await api('/user', IRequestMethods.GET);
   const json = await respone.json();
   return json;
 }

@@ -17,18 +17,7 @@ sampleRouter.post('/sample', async (req, res) => {
   const body = req.body;
   // PARSe body? DAO?
 
-  // TODO boilderplate erledigen.
-  const user: IUser = new User();
-  user.firstName = body.firstName;
-  user.lastName = body.lastName;
-  user.userName = body.userName;
-  user.email = body.email;
-  user.created_at = getTime();
-  user.last_changed = getTime();
-  await user.save();
-
-  const message =
-    'Das kamm vom Frontend: ' + body + '. Das Backend hat dieses angehängt:' + user.toJSON;
+  const message = 'Das kamm vom Frontend: ' + body + '. Das Backend hat dieses angehängt:';
 
   res.status(OK).send({
     data: message,

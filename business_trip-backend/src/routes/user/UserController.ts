@@ -15,26 +15,33 @@ userRouter.get('/users', async (req, res) => {
   });
 });
 
-userRouter.post('/sample', async (req, res) => {
-  const body = req.body;
-  // PARSe body? DAO?
+userRouter.post('/user', async (req, res) => {
+  const userDTO: UserDTO = req.body;
 
-  const originalData = body.data;
-
-  const user: IUser = new User();
-  // user.build('deezmax', 'Maximilian', 'Schreiter', 'test');
-  user.firstName = body.firstName;
-  user.lastName = body.lastName;
-  user.userName = body.userName;
-  user.email = body.email;
-  user.created_at = getTime();
-  user.last_changed = getTime();
-  await user.save();
-
-  const message =
-    'Das kamm vom Frontend: ' + originalData + '. Das Backend hat dieses angehängt:' + user.toJSON;
-
-  res.status(OK).send({
-    data: message,
+  let user: IUser = await User.findOne({
+    userName: userDTO.userName,
   });
+
+  if (user?.id) {
+    user.firstName = userDTO.firstName;
+    user.lastName = userDTO.lastName;
+    user.userName = userDTO.userName;
+    user.email = userDTO.email;
+    user.last_changed = getTime();
+
+    const savedUser = await user.save();
+  } else {
+    user = new User({
+      firstName: userDTO.firstName,
+      lastName: userDTO.lastName,
+      userName: userDTO.userName,
+      email: userDTO.email,
+      created_at: getTime(),
+      last_changed: getTime(),
+    });
+
+    await user.save();
+  }
+
+  res.status(OK).send();
 });
