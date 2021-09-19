@@ -1,6 +1,6 @@
 [
   {
-    "name": "my-service",
+    "name": "business_trip_backend",
     "baseUri": "http://localhost:3000/api",
     "endpoints": [
       {
@@ -10,6 +10,11 @@
         "request": {
           "message": "string"
         }
+      },
+      {
+        "method": "GET",
+        "path": "/api",
+        "response": "string"
       }
     ]
   }
