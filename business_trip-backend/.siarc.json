@@ -15,6 +15,64 @@
         "method": "GET",
         "path": "/api",
         "response": "string"
+      },
+      {
+        "method": "GET",
+        "path": "/user",
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/deepTest",
+        "response": {
+          "deep": {
+            "userName": "UserDTO",
+            "firstName": "string",
+            "user": {
+              "user": "number",
+              "test2": "UserDTO"
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/deepTest3",
+        "response": {
+          "deep": {
+            "userName": "UserDTO",
+            "firstName": "string",
+            "user": {
+              "user": "number",
+              "test2": "UserDTO"
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/test",
+        "response": {
+          "user": "UserDTO"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest",
+        "request": {
+          "userName": "string"
+        },
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
       }
     ]
   }
