@@ -65,7 +65,38 @@
         "method": "POST",
         "path": "/postTest",
         "request": {
-          "userName": "string"
+          "userName": "string",
+          "test": "number"
+        },
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest2",
+        "request": {
+          "user": "UserDTO"
+        },
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest3",
+        "request": {
+          "userName": "string",
+          "test": {
+            "test2": "UserDTO",
+            "test3": "number"
+          }
         },
         "response": {
           "userName": "number",

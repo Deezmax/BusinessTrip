@@ -7,6 +7,18 @@ import { getTime } from '../../shared/functions';
 
 export const userRouter = Router();
 
+userRouter.get('/user', async (req, res) => {
+  let userDTO: UserDTO;
+
+  // res.status(OK).send(userDTO);
+  res.status(OK).send({
+    userName: 5,
+    firstName: '5',
+    user: userDTO,
+    test: '',
+  });
+});
+
 userRouter.get('/deepTest', async (req, res) => {
   let user: UserDTO;
 
@@ -28,8 +40,10 @@ userRouter.get('/test', async (req, res) => {
   res.send(user);
 });
 
-userRouter.get('/user', async (req, res) => {
+userRouter.post('/postTest', async (req, res) => {
   let userDTO: UserDTO;
+
+  const testBody: { userName: string; test: number } = req.body();
 
   // res.status(OK).send(userDTO);
   res.status(OK).send({
@@ -40,10 +54,24 @@ userRouter.get('/user', async (req, res) => {
   });
 });
 
-userRouter.post('/postTest', async (req, res) => {
+userRouter.post('/postTest2', async (req, res) => {
   let userDTO: UserDTO;
 
-  const body = req.body();
+  const testBody: UserDTO = req.body();
+
+  // res.status(OK).send(userDTO);
+  res.status(OK).send({
+    userName: 5,
+    firstName: 'test',
+    user: userDTO,
+    test: '',
+  });
+});
+
+userRouter.post('/postTest3', async (req, res) => {
+  let userDTO: UserDTO;
+
+  const testBody: { userName: string; test: { test2: UserDTO; test3: number } } = req.body();
 
   // res.status(OK).send(userDTO);
   res.status(OK).send({
@@ -68,6 +96,7 @@ userRouter.post('/user', async (req, res) => {
   let user: IUser = await User.findOne({
     userName: userDTO.userName,
   });
+});
 
 //   if (user?.id) {
 //     user.firstName = userDTO.firstName;
