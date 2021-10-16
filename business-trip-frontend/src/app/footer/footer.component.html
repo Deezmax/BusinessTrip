@@ -1,1 +1,10 @@
-<p>footer works!</p>
+<div class="footer bg-dark">
+  <div class="row">
+    <div class="col">Projekt für die Bachelorarbeit</div>
+    <div className="col center">
+      <div *ngIf="isLoading">...</div>
+      <div *ngIf="!isLoading">{{ version }}</div>
+    </div>
+    <div class="col left">&copy; Maximilian Schreiter</div>
+  </div>
+</div>

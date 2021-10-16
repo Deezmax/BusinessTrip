@@ -7,11 +7,11 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'travelDestinations', component: TravelDestinationsComponent },
-  { path: 'businessTrips', component: BusinessTripComponent },
+  { path: 'traveldestinations', component: TravelDestinationsComponent },
+  { path: 'businesstrips', component: BusinessTripComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

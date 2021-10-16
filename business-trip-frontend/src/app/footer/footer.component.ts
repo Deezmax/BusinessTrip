@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,7 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  constructor() {}
+  public version: any;
+  isLoading: boolean = true;
 
-  ngOnInit(): void {}
+  constructor(protected apiServce: ApiService) {}
+
+  ngOnInit(): void {
+    this.apiServce.getVersion().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.version = data.framework + data.version;
+      },
+      (err) => {},
+      () => {
+        this.isLoading = false;
+      },
+    );
+    this.isLoading = false;
+  }
 }

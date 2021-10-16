@@ -4,6 +4,7 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 
 import User, { IUser } from '../../common/User';
 import { getTime } from '../../shared/functions';
+import { UserDTO } from 'src/common/dto/UserDTO';
 
 export const userRouter = Router();
 
@@ -93,9 +94,9 @@ userRouter.get('/users', async (req, res) => {
 userRouter.post('/user', async (req, res) => {
   const userDTO: UserDTO = req.body;
 
-  let user: IUser = await User.findOne({
-    userName: userDTO.userName,
-  });
+  // let user: IUser = await User.findOne({
+  //   userName: userDTO.userName,
+  // });
 });
 
 //   if (user?.id) {

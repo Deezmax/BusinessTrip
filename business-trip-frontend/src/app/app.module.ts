@@ -12,6 +12,8 @@ import { BusinessTripComponent } from './business-trip/business-trip.component';
 import { BusinessTripService } from './services/businessTrip/business-trip.service';
 import { UserService } from './services/user/user.service';
 import { UsersComponent } from './users/users.component';
+import { ApiService } from './services/api/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,8 @@ import { UsersComponent } from './users/users.component';
     BusinessTripComponent,
     UsersComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [BusinessTripService, UserService],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [BusinessTripService, UserService, ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

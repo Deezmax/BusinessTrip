@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-interface UserDTO {
+export interface UserDTO {
   userName: string;
   firstName: string;
   lastName: string;
