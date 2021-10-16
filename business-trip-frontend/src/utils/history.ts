@@ -1,16 +1,16 @@
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 
-export const browerHistory = createBrowserHistory();
+// export const browerHistory = createBrowserHistory();
 
-export const saveCurrentPath = (localtion: any) => {
-  if (localtion) {
-    sessionStorage.setItem('currentPath', localtion.pathname);
-  }
-};
+// export const saveCurrentPath = (localtion: any) => {
+//   if (localtion) {
+//     sessionStorage.setItem('currentPath', localtion.pathname);
+//   }
+// };
 
-export const getCurrentPath = () => {
-  const currentPath = sessionStorage.getItem('currentPath');
-  if (currentPath) {
-    return currentPath.substring(currentPath.lastIndexOf('/') + 1);
-  }
-};
+// export const getCurrentPath = () => {
+//   const currentPath = sessionStorage.getItem('currentPath');
+//   if (currentPath) {
+//     return currentPath.substring(currentPath.lastIndexOf('/') + 1);
+//   }
+// };

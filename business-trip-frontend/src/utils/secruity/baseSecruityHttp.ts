@@ -18,7 +18,7 @@ interface RequestOptions {
 
 export function getRequestOptions(method?: IRequestMethods, body?: any) {
   const requestOptions: RequestOptions = {
-    method: null,
+    method: IRequestMethods.GET,
     headers: null,
   };
 

@@ -9,6 +9,8 @@ import { DecoratorComponent } from './decorator/decorator.component';
 import { TravelDestinationsComponent } from './travel-destinations/travel-destinations.component';
 import { HomeComponent } from './home/home.component';
 import { BusinessTripComponent } from './business-trip/business-trip.component';
+import { BusinessTripService } from './services/businessTrip/business-trip.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,10 @@ import { BusinessTripComponent } from './business-trip/business-trip.component';
     DecoratorComponent,
     TravelDestinationsComponent,
     HomeComponent,
-    BusinessTripComponent
+    BusinessTripComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [BusinessTripService, UserService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
