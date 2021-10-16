@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { BusinessTripComponent } from './business-trip/business-trip.component';
 import { BusinessTripService } from './services/businessTrip/business-trip.service';
 import { UserService } from './services/user/user.service';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserService } from './services/user/user.service';
     TravelDestinationsComponent,
     HomeComponent,
     BusinessTripComponent,
+    UsersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [BusinessTripService, UserService],
