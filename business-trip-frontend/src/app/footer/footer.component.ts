@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
     this.apiServce.getVersion().subscribe(
       (data: any) => {
         console.log(data);
-        this.version = data.framework + data.version;
+        this.version = `${data.framework} v${data.version}`;
       },
       (err) => {},
       () => {

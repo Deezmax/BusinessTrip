@@ -60,13 +60,18 @@ userRouter.post('/postTest2', async (req, res) => {
 
   const testBody: UserDTO = req.body();
 
-  // res.status(OK).send(userDTO);
+  const testBody2: { user: UserDTO } = req.body();
+
   res.status(OK).send({
     userName: 5,
     firstName: 'test',
     user: userDTO,
     test: '',
   });
+
+  const x = 'jojo';
+
+  res.status(OK).send(false);
 });
 
 userRouter.post('/postTest3', async (req, res) => {

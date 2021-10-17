@@ -78,15 +78,8 @@
       {
         "method": "POST",
         "path": "/postTest2",
-        "request": {
-          "user": "UserDTO"
-        },
-        "response": {
-          "userName": "number",
-          "firstName": "string",
-          "user": "UserDTO",
-          "test": "string"
-        }
+        "request": "UserDTO",
+        "response": "boolean"
       },
       {
         "method": "POST",
@@ -104,6 +97,12 @@
           "user": "UserDTO",
           "test": "string"
         }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest3",
+        "request": "",
+        "response": { "isArray": true, "type": "UserDTO" }
       }
     ]
   }

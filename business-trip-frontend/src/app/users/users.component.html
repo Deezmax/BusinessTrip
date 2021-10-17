@@ -1,1 +1,42 @@
-<p>users works!</p>
+<div class="row bus">
+  <div class="col">
+    <div class="row">
+      <div class="col-lg-6">
+        <select class="form-select" defaultValue="-1">
+          <option selected>Open this select menu</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <form onSubmit="{onClickCommit}">
+        <div class="container-lg-10">
+          <div class="row">
+            <div class="col-lg-10">
+              <label htmlFor="userNameInput" class="form-label"> Username </label>
+              <input type="text" class="form-control" id="userNameInput" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10">
+              <label htmlFor="firstNameInput" class="form-label"> First name </label>
+              <input type="text" class="form-control" id="firstNameInput" value="" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10">
+              <label htmlFor="lastNameInput" class="form-label"> Last name </label>
+              <input type="text" class="form-control" id="lastNameInput" value="" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10">
+              <label htmlFor="emailInput" class="form-label"> Email Adresse </label>
+              <input type="email" class="form-control" id="emailInput" value="" />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
