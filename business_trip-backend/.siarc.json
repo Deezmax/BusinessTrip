@@ -99,9 +99,26 @@
         }
       },
       {
-        "method": "POST",
-        "path": "/postTest3",
-        "request": "",
+        "method": "GET",
+        "path": "/arrayTest",
+        "response": {
+          "userDTOs": { "isArray": true, "type": "UserDTO" }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/arrayTest2",
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string",
+          "userDTOs": { "isArray": true, "type": "UserDTO" }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/arrayTest3",
         "response": { "isArray": true, "type": "UserDTO" }
       }
     ]

@@ -8,6 +8,48 @@ import { UserDTO } from 'src/common/dto/UserDTO';
 
 export const userRouter = Router();
 
+userRouter.get('/arrayTest', (req, res) => {
+  let userDTOs: UserDTO[];
+
+  let userDTO: number;
+
+  const obj = { userDTOs: userDTOs };
+
+  // res.status(OK).send({ userDTos: userDTOs });
+  res.status(OK).send(obj);
+});
+
+userRouter.get('/arrayTest2', (req, res) => {
+  let userDTOs: UserDTO[];
+
+  let userDTO: UserDTO;
+
+  const x = {
+    userName: 5,
+    firstName: '',
+    user: userDTO,
+    test: '',
+    userDTOs: userDTOs,
+  };
+
+  // res.status(OK).send(userDTOs);
+  // res.status(OK).send(x);
+  res.status(OK).send(x);
+});
+
+userRouter.get('/arrayTest3', (req, res) => {
+  let userDTOs: UserDTO[];
+
+  let userDTO: number;
+
+  res.status(OK).send(userDTOs);
+});
+
+userRouter.get('/test', async (req, res) => {
+  let user: UserDTO;
+  res.send(user);
+});
+
 userRouter.get('/user', async (req, res) => {
   let userDTO: UserDTO;
 
