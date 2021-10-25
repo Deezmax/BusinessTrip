@@ -102,7 +102,11 @@
         "method": "GET",
         "path": "/arrayTest",
         "response": {
-          "userDTOs": { "isArray": true, "type": "UserDTO" }
+          "userDTOs": { "isArray": true, "type": "UserDTO" },
+          "numb": {
+            "test": "string",
+            "users": { "isArray": true, "type": "UserDTO" }
+          }
         }
       },
       {
@@ -120,6 +124,23 @@
         "method": "GET",
         "path": "/arrayTest3",
         "response": { "isArray": true, "type": "UserDTO" }
+      },
+      {
+        "method": "POST",
+        "path": "/arrayPostTest",
+        "response": { "isArray": true, "type": "UserDTO" },
+        "request": { "isArray": true, "type": "UserDTO" }
+      },
+      {
+        "method": "POST",
+        "path": "/arrayPostTest2",
+        "response": { "isArray": true, "type": "UserDTO" },
+        "request": {
+          "numb": {
+            "test": "string",
+            "users": { "isArray": true, "type": "UserDTO" }
+          }
+        }
       }
     ]
   }

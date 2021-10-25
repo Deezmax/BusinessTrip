@@ -8,12 +8,53 @@ import { UserDTO } from 'src/common/dto/UserDTO';
 
 export const userRouter = Router();
 
+userRouter.post('/arrayPostTest2', async (req, res) => {
+  let userDTOs: UserDTO[];
+
+  // const testBody: UserDTO[] = req.body();
+
+  const testBody: { numb: { test: string; users: UserDTO[] } } = req.body();
+  testBody.numb.test = '';
+  res.status(OK).send(userDTOs);
+});
+
+userRouter.post('/arrayPostTest', async (req, res) => {
+  let userDTOs: UserDTO[];
+
+  const testBody: UserDTO[] = req.body();
+
+  // res.status(OK).send(userDTO);
+  res.status(OK).send(userDTOs);
+});
+
 userRouter.get('/arrayTest', (req, res) => {
   let userDTOs: UserDTO[];
 
-  let userDTO: number;
+  let numb: number;
 
-  const obj = { userDTOs: userDTOs };
+  let userDTO: UserDTO;
+
+  const obj: { userDTOs: UserDTO[]; numb: { test: string; users: UserDTO[] } } = {
+    userDTOs: userDTOs,
+    numb: {
+      test: '',
+      users: userDTOs,
+    },
+  };
+
+  // const obj: { numb: { test: string; users: UserDTO[] } } = {
+  //   numb: {
+  //     test: '',
+  //     users: userDTOs,
+  //   },
+  // };
+
+  // const obj: { numb: { test: string; user: UserDTO } } = {
+  //   numb: {
+  //     test: '',
+  //     user: userDTO,
+  //   },
+  // };
 
   // res.status(OK).send({ userDTos: userDTOs });
   res.status(OK).send(obj);
@@ -24,7 +65,13 @@ userRouter.get('/arrayTest2', (req, res) => {
 
   let userDTO: UserDTO;
 
-  const x = {
+  const x: {
+    userName: number;
+    firstName: string;
+    user: UserDTO;
+    test: string;
+    userDTOs: UserDTO[];
+  } = {
     userName: 5,
     firstName: '',
     user: userDTO,
@@ -39,8 +86,6 @@ userRouter.get('/arrayTest2', (req, res) => {
 
 userRouter.get('/arrayTest3', (req, res) => {
   let userDTOs: UserDTO[];
-
-  let userDTO: number;
 
   res.status(OK).send(userDTOs);
 });
