@@ -2,6 +2,7 @@
   {
     "name": "business_trip_backend",
     "baseUri": "http://localhost:3000/api",
+    "frontends": ["business-trip-frontend"],
     "endpoints": [
       {
         "method": "POST",
