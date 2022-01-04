@@ -101,6 +101,11 @@
       },
       {
         "method": "GET",
+        "path": "/hello/hello/:q?",
+        "response": "string"
+      },
+      {
+        "method": "GET",
         "path": "/arrayTest",
         "response": {
           "userDTOs": { "isArray": true, "type": "UserDTO" },

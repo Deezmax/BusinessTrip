@@ -9,6 +9,19 @@ export class ApiService {
   constructor(protected httpClient: HttpClient) {}
 
   getVersion() {
-    return this.httpClient.get(BASE_URI);
+    return this.httpClient.get(BASE_URI + 'arrayPostTest');
+  }
+
+  getVersion2() {
+    const x = this.httpClient.get(BASE_URI + 'api');
+    return x;
+  }
+
+  getVersion3() {
+    return this.httpClient.get('/api');
+  }
+
+  getHome() {
+    return this.httpClient.get('/hello/hello/5');
   }
 }

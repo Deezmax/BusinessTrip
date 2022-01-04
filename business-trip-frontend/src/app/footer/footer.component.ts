@@ -23,6 +23,5 @@ export class FooterComponent implements OnInit {
         this.isLoading = false;
       },
     );
-    this.isLoading = false;
   }
 }

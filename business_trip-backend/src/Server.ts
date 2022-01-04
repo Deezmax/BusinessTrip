@@ -62,7 +62,11 @@ const apiVersion = {
 };
 
 app.get('/api', (req, res) => {
-  res.status(OK).json(apiVersion);
+  res.status(OK).json('55');
+});
+
+app.get('/hello/hello/:q?', (req, res) => {
+  res.send('');
 });
 
 // Export express instance
