@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import StatusCodes from 'http-status-codes';
 import { Request, Response, Router } from 'express';
 const { BAD_REQUEST, CREATED, OK } = StatusCodes;
@@ -131,15 +132,9 @@ userRouter.get('/test', async (req, res) => {
 userRouter.post('/postTest', async (req, res) => {
   let userDTO: UserDTO;
 
-  const testBody: { userName: string; test: number } = req.body();
+  const testBody: { userName: string; number: number } = req.body();
 
   // res.status(OK).send(userDTO);
-  res.status(OK).send({
-    userName: 5,
-    firstName: 'test',
-    user: userDTO,
-    test: '',
-  });
 });
 
 userRouter.post('/postTest2', async (req, res) => {

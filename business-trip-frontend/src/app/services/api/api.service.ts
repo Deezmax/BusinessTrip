@@ -24,4 +24,8 @@ export class ApiService {
   getHome() {
     return this.httpClient.get('/hello/hello/5');
   }
+
+  getPost() {
+    return this.httpClient.post('/postTest', {});
+  }
 }
