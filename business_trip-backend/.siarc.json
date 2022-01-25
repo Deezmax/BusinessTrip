@@ -2,6 +2,7 @@
   {
     "name": "business_trip_backend",
     "baseUri": "http://localhost:3000/api",
+    "frontends": ["business-trip-frontend"],
     "endpoints": [
       {
         "method": "POST",
@@ -15,6 +16,137 @@
         "method": "GET",
         "path": "/api",
         "response": "string"
+      },
+      {
+        "method": "GET",
+        "path": "/user",
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/deepTest",
+        "response": {
+          "deep": {
+            "userName": "UserDTO",
+            "firstName": "string",
+            "user": {
+              "user": "number",
+              "test2": "UserDTO"
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/deepTest3",
+        "response": {
+          "deep": {
+            "userName": "UserDTO",
+            "firstName": "string",
+            "user": {
+              "user": "number",
+              "test2": "UserDTO"
+            }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/test",
+        "response": {
+          "user": "UserDTO"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest",
+        "request": {
+          "userName": "string",
+          "number": "number"
+        },
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "id": "string"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/postTest2",
+        "request": "UserDTO",
+        "response": "UserDTO"
+      },
+      {
+        "method": "POST",
+        "path": "/postTest3",
+        "request": {
+          "userName": "string",
+          "test": {
+            "test2": "UserDTO",
+            "test3": "number"
+          }
+        },
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string"
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/hello/hello/:q?",
+        "response": "string"
+      },
+      {
+        "method": "GET",
+        "path": "/arrayTest",
+        "response": {
+          "userDTOs": { "isArray": true, "type": "UserDTO" },
+          "numb": {
+            "test": "string",
+            "users": { "isArray": true, "type": "UserDTO" }
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/arrayTest2",
+        "response": {
+          "userName": "number",
+          "firstName": "string",
+          "user": "UserDTO",
+          "test": "string",
+          "userDTOs": { "isArray": true, "type": "UserDTO" }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/arrayTest3",
+        "response": { "isArray": true, "type": "UserDTO" }
+      },
+      {
+        "method": "POST",
+        "path": "/arrayPostTest",
+        "response": { "isArray": true, "type": "UserDTO" },
+        "request": { "isArray": true, "type": "UserDTO" }
+      },
+      {
+        "method": "POST",
+        "path": "/arrayPostTest2",
+        "response": { "isArray": true, "type": "UserDTO" },
+        "request": {
+          "numb": {
+            "test": "string",
+            "users": { "isArray": true, "type": "UserDTO" }
+          }
+        }
       }
     ]
   }

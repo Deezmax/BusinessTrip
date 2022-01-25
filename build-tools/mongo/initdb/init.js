@@ -14,4 +14,6 @@ db.createUser(
     }
 )
 
-db.createCollection("test");
+db.createCollection("users");
+db.createCollection("travel_destinations");
+db.createCollection("business_trips")
