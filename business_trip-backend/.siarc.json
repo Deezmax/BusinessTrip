@@ -80,7 +80,7 @@
         "method": "POST",
         "path": "/postTest2",
         "request": "UserDTO",
-        "response": "boolean"
+        "response": "UserDTO"
       },
       {
         "method": "POST",
