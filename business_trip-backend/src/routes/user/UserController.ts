@@ -36,7 +36,6 @@ userRouter.post('/arrayPostTest', async (req, res) => {
   let userDTOs: UserDTO[];
   const testBody: UserDTO[] = req.body();
 
-  // res.status(OK).send(userDTO);
   res.status(OK).send(userDTOs);
 });
 
@@ -105,6 +104,7 @@ userRouter.get('/arrayTest3', (req, res) => {
 
 userRouter.get('/test', async (req, res) => {
   let user: UserDTO;
+  // ... some more code
   res.send(user);
 });
 
