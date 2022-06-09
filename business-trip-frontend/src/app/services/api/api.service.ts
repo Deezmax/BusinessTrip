@@ -9,7 +9,8 @@ export class ApiService {
   constructor(protected httpClient: HttpClient) {}
 
   getVersion() {
-    return this.httpClient.get(BASE_URI + 'arrayPostTest');
+    // return this.httpClient.get(BASE_URI + 'arrayPostTest');
+    return this.httpClient.get(BASE_URI + '/arrayPostTest')
   }
 
   getVersion2() {
